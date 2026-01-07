@@ -1,5 +1,6 @@
 // PREMIUM UI LOGIC
-// Includes: Lenis Smooth Scroll, Custom Cursor, Magnetic Buttons
+// Includes: Lenis Smooth Scroll, Custom Cursor, Magnetic Buttons, 3D Text
+// REMOVED: Page Transitions (Wipe Overlay)
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -101,9 +102,6 @@ document.addEventListener("DOMContentLoaded", () => {
                         y: newY * magnetsStrength,
                         ease: "power4.out"
                     });
-
-                    // Also pull custom cursor towards button center slightly for "stickiness"
-                    // (Optional, can be complex to implement perfectly with existing cursor logic, so sticking to element movement)
                 });
 
                 magnet.addEventListener("mouseleave", () => {
@@ -116,5 +114,43 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
             });
         }
+    }
+
+    // --- 5. PAGE TRANSITIONS REMOVED ---
+
+    // --- 6. TEXT REVEALS (SplitType 3D ROLLING) ---
+    if (typeof SplitType !== 'undefined' && typeof gsap !== 'undefined') {
+        const revealText = document.querySelectorAll("h1, h2, .hero-title, .reveal-text");
+
+        revealText.forEach(text => {
+            // Split text into lines
+            const split = new SplitType(text, { types: 'lines' });
+
+            // Wrap lines in a container for overflow hidden + perspective
+            split.lines.forEach(line => {
+                const wrapper = document.createElement('div');
+                wrapper.classList.add('split-line');
+                line.parentNode.insertBefore(wrapper, line);
+                wrapper.appendChild(line);
+            });
+
+            // Animate lines: 3D Roll Up
+            gsap.fromTo(split.lines,
+                { y: 100, opacity: 0, rotationX: -80, transformOrigin: "bottom" },
+                {
+                    y: 0,
+                    opacity: 1,
+                    rotationX: 0,
+                    duration: 1.4,
+                    stagger: 0.1,
+                    ease: "power4.out",
+                    scrollTrigger: {
+                        trigger: text,
+                        start: "top 85%",
+                        toggleActions: "play none none reverse"
+                    }
+                }
+            );
+        });
     }
 });

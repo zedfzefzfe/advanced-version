@@ -85,3 +85,17 @@ html.lenis body {
         border-color: transparent;
     }
 }
+
+/* 4. PAGE TRANSITION REMOVED */
+
+/* 5. TEXT REVEALS (SplitType 3D) */
+.split-line {
+    overflow: hidden;
+    perspective: 400px;
+    /* Essential for 3D roll */
+}
+
+.split-line .line {
+    transform-origin: bottom;
+    will-change: transform, opacity;
+}
