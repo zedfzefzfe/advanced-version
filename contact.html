@@ -91,11 +91,20 @@
     <!-- Hero Section -->
     <main
         class="overflow-hidden p-0! pt-24! relative min-h-screen max-[575px]:pt-[150px]! bg-linear-to-br from-blue-50 via-white to-yellow-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+        <div class="contact-ambient" aria-hidden="true">
+            <span class="contact-orb orb-1"></span>
+            <span class="contact-orb orb-2"></span>
+            <span class="contact-orb orb-3"></span>
+            <span class="contact-ring ring-1"></span>
+            <span class="contact-ring ring-2"></span>
+            <span class="contact-grid"></span>
+            <span class="contact-glow"></span>
+        </div>
         <section id="contact-hero" class="flex-center flex-col pb-12 pt-16 md:pt-20 md:pb-20 xl:pt-24 xl:pb-24 w-full">
             <div class="container mx-auto px-4">
                 <div class="max-w-4xl mx-auto text-center">
                     <div
-                        class="inline-flex items-center px-4 py-2 bg-main-bg-color text-main-color rounded-full text-sm font-medium mb-6">
+                        class="inline-flex items-center px-4 py-2 bg-main-bg-color text-main-color rounded-full text-sm font-medium mb-6 contact-pill">
                         Discutons de votre projet
                     </div>
 
@@ -110,7 +119,51 @@
                         Prêt à transformer votre vision en réalité digitale ? Notre équipe d'experts vous accompagne
                         dans chaque étape de votre projet technologique.
                     </p>
+
+                    <div class="flex flex-wrap items-center justify-center gap-4 mb-10 contact-hero-actions">
+                        <a href="#contact-section"
+                            class="contact-cta-primary inline-flex items-center gap-3 px-8 py-4 rounded-full text-white font-semibold bg-main-color shadow-lg hover:-translate-y-1 transition-all duration-200">
+                            <ion-icon name="sparkles-outline" class="text-xl"></ion-icon>
+                            Lancer mon projet
+                        </a>
+                        <a href="mailto:contact@lumiatechnologie.com"
+                            class="contact-cta-secondary inline-flex items-center gap-3 px-8 py-4 rounded-full font-semibold text-main-color border border-main-color/30 bg-white/80 dark:bg-white/10 backdrop-blur hover:-translate-y-1 transition-all duration-200">
+                            <ion-icon name="mail-outline" class="text-xl"></ion-icon>
+                            Email direct
+                        </a>
+                    </div>
+
+                    <div class="contact-highlights grid sm:grid-cols-3 gap-4 max-w-4xl mx-auto">
+                        <div class="contact-highlight">
+                            <div class="highlight-icon">
+                                <ion-icon name="time-outline"></ion-icon>
+                            </div>
+                            <div>
+                                <p class="highlight-title">Réponse rapide</p>
+                                <p class="highlight-subtitle">Sous 24h</p>
+                            </div>
+                        </div>
+                        <div class="contact-highlight">
+                            <div class="highlight-icon">
+                                <ion-icon name="shield-checkmark-outline"></ion-icon>
+                            </div>
+                            <div>
+                                <p class="highlight-title">Confidentialité</p>
+                                <p class="highlight-subtitle">100% sécurisée</p>
+                            </div>
+                        </div>
+                        <div class="contact-highlight">
+                            <div class="highlight-icon">
+                                <ion-icon name="rocket-outline"></ion-icon>
+                            </div>
+                            <div>
+                                <p class="highlight-title">Accompagnement</p>
+                                <p class="highlight-subtitle">De A à Z</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+            </div>
         </section>
 
         <!-- Main Contact Section -->
@@ -120,7 +173,7 @@
                     <!-- Contact Form -->
                     <div class="lg:col-span-3">
                         <div
-                            class="bg-white dark:bg-dark-box rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700 p-8 lg:p-10">
+                            class="bg-white dark:bg-dark-box rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700 p-8 lg:p-10 contact-card contact-card-glow">
                             <div class="mb-8">
                                 <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-4">
                                     Envoyez-nous un message
@@ -221,7 +274,7 @@
                     <div class="lg:col-span-2 space-y-6">
                         <!-- Contact Details -->
                         <div
-                            class="bg-white dark:bg-dark-box rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700 p-8">
+                            class="bg-white dark:bg-dark-box rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700 p-8 contact-card">
                             <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">
                                 Nos coordonnées
                             </h3>
@@ -274,7 +327,7 @@
 
                         <!-- Social Media -->
                         <div
-                            class="bg-white dark:bg-dark-box rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700 p-8">
+                            class="bg-white dark:bg-dark-box rounded-2xl shadow-xl border border-gray-100 dark:border-gray-700 p-8 contact-card">
                             <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6">
                                 Suivez-nous
                             </h3>
@@ -489,6 +542,16 @@
                     { y: 30, opacity: 0, filter: "blur(10px)" },
                     { y: 0, opacity: 1, filter: "blur(0px)", duration: 1, ease: "power3.out" },
                     "-=0.8"
+                )
+                .fromTo(".contact-hero-actions a",
+                    { y: 30, opacity: 0, scale: 0.96 },
+                    { y: 0, opacity: 1, scale: 1, duration: 0.6, stagger: 0.15, ease: "back.out(1.6)" },
+                    "-=0.5"
+                )
+                .fromTo(".contact-highlight",
+                    { y: 30, opacity: 0 },
+                    { y: 0, opacity: 1, duration: 0.6, stagger: 0.12, ease: "power2.out" },
+                    "-=0.4"
                 );
 
             // Contact Form & Sidebar Animation
@@ -517,6 +580,23 @@
                     opacity: 1, y: 0, duration: 1, ease: "power2.out"
                 }
             );
+
+            // Ambient Orbs Parallax
+            const orbs = gsap.utils.toArray(".contact-orb");
+            const orbMoves = orbs.map((orb) => ({
+                x: gsap.quickTo(orb, "x", { duration: 1.2, ease: "power3.out" }),
+                y: gsap.quickTo(orb, "y", { duration: 1.2, ease: "power3.out" })
+            }));
+
+            document.addEventListener("mousemove", (event) => {
+                const offsetX = (event.clientX / window.innerWidth - 0.5) * 60;
+                const offsetY = (event.clientY / window.innerHeight - 0.5) * 60;
+                orbMoves.forEach((move, index) => {
+                    const factor = 0.4 + index * 0.2;
+                    move.x(offsetX * factor);
+                    move.y(offsetY * factor);
+                });
+            });
         });
     </script>
 </body>
