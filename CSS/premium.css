@@ -99,3 +99,296 @@ html.lenis body {
     transform-origin: bottom;
     will-change: transform, opacity;
 }
+
+/* 6. CONTACT HERO ENHANCEMENTS */
+#contact-hero {
+    isolation: isolate;
+}
+
+.hero-orb {
+    position: absolute;
+    border-radius: 999px;
+    filter: blur(0px);
+    opacity: 0.6;
+    z-index: 0;
+    animation: orbFloat 14s ease-in-out infinite;
+}
+
+.hero-orb.orb-one {
+    width: 320px;
+    height: 320px;
+    background: radial-gradient(circle at 30% 30%, rgba(59, 130, 246, 0.35), transparent 65%);
+    top: -60px;
+    left: -80px;
+}
+
+.hero-orb.orb-two {
+    width: 420px;
+    height: 420px;
+    background: radial-gradient(circle at 30% 30%, rgba(99, 102, 241, 0.35), transparent 65%);
+    right: -140px;
+    top: 10%;
+    animation-delay: -4s;
+}
+
+.hero-orb.orb-three {
+    width: 280px;
+    height: 280px;
+    background: radial-gradient(circle at 30% 30%, rgba(236, 72, 153, 0.3), transparent 65%);
+    left: 15%;
+    bottom: -120px;
+    animation-delay: -8s;
+}
+
+.hero-pillars {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+}
+
+.hero-pill {
+    padding: 10px 18px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.75);
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    align-items: flex-start;
+}
+
+body.dark .hero-pill {
+    background: rgba(15, 23, 42, 0.7);
+    border-color: rgba(148, 163, 184, 0.3);
+}
+
+.pill-number {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #2563eb;
+}
+
+body.dark .pill-number {
+    color: #93c5fd;
+}
+
+.pill-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgba(15, 23, 42, 0.7);
+}
+
+body.dark .pill-label {
+    color: rgba(226, 232, 240, 0.7);
+}
+
+.contact-hero-visual {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    place-items: center;
+}
+
+.hero-glass-card {
+    position: relative;
+    overflow: hidden;
+    padding: 32px;
+    border-radius: 28px;
+    background: linear-gradient(130deg, rgba(255, 255, 255, 0.95), rgba(239, 246, 255, 0.85));
+    border: 1px solid rgba(148, 163, 184, 0.25);
+    box-shadow: 0 30px 70px rgba(15, 23, 42, 0.18);
+}
+
+body.dark .hero-glass-card {
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.95), rgba(30, 41, 59, 0.9));
+    border-color: rgba(148, 163, 184, 0.2);
+    box-shadow: 0 30px 70px rgba(2, 6, 23, 0.6);
+}
+
+.hero-card-header {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    background: rgba(59, 130, 246, 0.12);
+    color: #2563eb;
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #22c55e;
+    box-shadow: 0 0 12px rgba(34, 197, 94, 0.8);
+}
+
+.hero-glass-card h3 {
+    margin-top: 18px;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+body.dark .hero-glass-card h3 {
+    color: #f8fafc;
+}
+
+.hero-glass-card p {
+    margin-top: 12px;
+    color: rgba(51, 65, 85, 0.8);
+}
+
+body.dark .hero-glass-card p {
+    color: rgba(226, 232, 240, 0.75);
+}
+
+.hero-card-grid {
+    margin-top: 24px;
+    display: grid;
+    gap: 12px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.hero-card-chip {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    border-radius: 16px;
+    background: rgba(59, 130, 246, 0.12);
+    color: #1e3a8a;
+    font-weight: 600;
+}
+
+body.dark .hero-card-chip {
+    background: rgba(148, 163, 184, 0.15);
+    color: #e2e8f0;
+}
+
+.hero-wave {
+    position: absolute;
+    bottom: -45%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    background: radial-gradient(circle at 50% 0%, rgba(59, 130, 246, 0.25), transparent 70%);
+    animation: wavePulse 10s ease-in-out infinite;
+    z-index: -1;
+}
+
+.glow-ring {
+    position: absolute;
+    inset: 20px;
+    border-radius: 24px;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    box-shadow: 0 0 30px rgba(59, 130, 246, 0.2);
+    animation: ringSpin 12s linear infinite;
+    pointer-events: none;
+}
+
+.floating-badge {
+    position: absolute;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border-radius: 999px;
+    background: rgba(15, 23, 42, 0.85);
+    color: #fff;
+    font-size: 0.85rem;
+    font-weight: 600;
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.35);
+}
+
+.floating-badge ion-icon {
+    font-size: 1rem;
+}
+
+.badge-top {
+    top: -12px;
+    left: -10px;
+}
+
+.badge-bottom {
+    bottom: -14px;
+    right: -10px;
+}
+
+.contact-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top left, rgba(59, 130, 246, 0.12), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.contact-card:hover::after {
+    opacity: 1;
+}
+
+.faq-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.faq-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.faq-card:hover::before {
+    opacity: 1;
+}
+
+@media (min-width: 1024px) {
+    .hero-pillars {
+        justify-content: flex-start;
+    }
+}
+
+@keyframes orbFloat {
+    0%,
+    100% {
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+    50% {
+        transform: translate3d(0, -25px, 0) scale(1.05);
+    }
+}
+
+@keyframes wavePulse {
+    0%,
+    100% {
+        transform: translateY(0);
+        opacity: 0.6;
+    }
+    50% {
+        transform: translateY(-20px);
+        opacity: 1;
+    }
+}
+
+@keyframes ringSpin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
