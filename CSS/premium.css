@@ -99,3 +99,199 @@ html.lenis body {
     transform-origin: bottom;
     will-change: transform, opacity;
 }
+
+/* 6. CONTACT HERO IMPRESSIVE LAYER */
+.contact-hero {
+    position: relative;
+    isolation: isolate;
+}
+
+.contact-hero-visual {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.hero-orb {
+    position: absolute;
+    border-radius: 999px;
+    filter: blur(10px);
+    opacity: 0.7;
+    mix-blend-mode: screen;
+    animation: floatOrb 12s ease-in-out infinite;
+}
+
+.hero-orb.orb-1 {
+    width: 320px;
+    height: 320px;
+    left: -60px;
+    top: -40px;
+    background: radial-gradient(circle at 30% 30%, #60a5fa, rgba(96, 165, 250, 0));
+}
+
+.hero-orb.orb-2 {
+    width: 380px;
+    height: 380px;
+    right: -120px;
+    top: 40px;
+    background: radial-gradient(circle at 60% 40%, #a78bfa, rgba(167, 139, 250, 0));
+    animation-delay: -4s;
+}
+
+.hero-orb.orb-3 {
+    width: 420px;
+    height: 420px;
+    left: 10%;
+    bottom: -220px;
+    background: radial-gradient(circle at 50% 50%, #facc15, rgba(250, 204, 21, 0));
+    animation-delay: -8s;
+}
+
+.hero-grid {
+    position: absolute;
+    inset: -10% 0 0 0;
+    background-image: linear-gradient(rgba(59, 130, 246, 0.15) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(59, 130, 246, 0.15) 1px, transparent 1px);
+    background-size: 80px 80px;
+    opacity: 0.25;
+    mask-image: radial-gradient(circle at 50% 10%, black, transparent 70%);
+}
+
+.hero-sparkles {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.7) 1px, transparent 1px);
+    background-size: 120px 120px;
+    opacity: 0.25;
+    animation: shimmer 12s linear infinite;
+}
+
+.contact-hero-pill {
+    box-shadow: 0 10px 30px rgba(37, 99, 235, 0.25);
+}
+
+.hero-pulse {
+    width: 10px;
+    height: 10px;
+    border-radius: 999px;
+    background: #22c55e;
+    position: relative;
+    display: inline-flex;
+    box-shadow: 0 0 0 rgba(34, 197, 94, 0.6);
+    animation: pulseRing 2.6s infinite;
+}
+
+.contact-hero-highlights {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-highlight-card {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    border-radius: 18px;
+    padding: 18px 20px;
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.12);
+    backdrop-filter: blur(14px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+body.dark .hero-highlight-card {
+    background: rgba(15, 23, 42, 0.6);
+    border-color: rgba(148, 163, 184, 0.2);
+}
+
+.hero-highlight-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, rgba(59, 130, 246, 0.12), transparent 40%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.hero-highlight-card:hover {
+    transform: translateY(-6px) scale(1.02);
+    box-shadow: 0 30px 60px rgba(15, 23, 42, 0.2);
+    border-color: rgba(59, 130, 246, 0.3);
+}
+
+.hero-highlight-card:hover::before {
+    opacity: 1;
+}
+
+.hero-highlight-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(99, 102, 241, 0.35));
+    display: grid;
+    place-items: center;
+    font-size: 22px;
+    color: #2563eb;
+    flex-shrink: 0;
+}
+
+body.dark .hero-highlight-icon {
+    color: #93c5fd;
+}
+
+.hero-highlight-card h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 4px;
+}
+
+body.dark .hero-highlight-card h3 {
+    color: #f8fafc;
+}
+
+.hero-highlight-card p {
+    font-size: 0.95rem;
+    color: rgba(15, 23, 42, 0.7);
+}
+
+body.dark .hero-highlight-card p {
+    color: rgba(248, 250, 252, 0.75);
+}
+
+@keyframes floatOrb {
+    0%,
+    100% {
+        transform: translate3d(0, 0, 0);
+    }
+    50% {
+        transform: translate3d(0, -22px, 0);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulseRing {
+    0% {
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.6);
+    }
+    70% {
+        box-shadow: 0 0 0 12px rgba(34, 197, 94, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+    }
+}
